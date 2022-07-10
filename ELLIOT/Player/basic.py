@@ -72,7 +72,7 @@ def pin(_, message):
     elif not message.reply_to_message:
         message.reply("الرد علي رساله")
     else:
-        message.reply("تأكد من أنني مسؤول ويمكنني تثبيت الرسائل")
+        message.reply("تأكد من أنني مسئول ويمكنني تثبيت الرسائل")
 
 
 @bot.on_message(filters.command('unpin'))
@@ -87,7 +87,7 @@ def unpin(_, message):
 
         message.reply("الرد علي رساله")
     else:
-        message.reply("تأكد من أنني مسؤول ويمكنني تثبيت الرسائل")
+        message.reply("تأكد من أنني مسئول ويمكنني تثبيت الرسائل")
 
 
 
