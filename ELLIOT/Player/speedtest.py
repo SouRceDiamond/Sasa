@@ -16,9 +16,9 @@ async def run_speedtest(_, message):
     try:
         test = speedtest.Speedtest()
         test.get_best_server()
-        m = await m.edit("⚡️ __جاري فحص سرعه التحميل__")
+        m = await m.edit("⌔ __جاري فحص سرعه التحميل__")
         test.download()
-        m = await m.edit("⚡️ __جاري فحص سرعه الرفع__")
+        m = await m.edit("⌔ __جاري فحص سرعه الرفع__")
         test.upload()
         test.results.share()
     except speedtest.ShareResultsConnectFailure:
@@ -27,7 +27,7 @@ async def run_speedtest(_, message):
         await m.edit_text(e)
         return
     result = test.results.dict()
-    m = await m.edit_text("🔄 التحضير للمعلومات")
+    m = await m.edit_text("🔄 تحضير المعلومات")
     if result["share"]:
         path = wget.download(result["share"])
         try:
@@ -36,7 +36,7 @@ async def run_speedtest(_, message):
             c.save(path)
         except BaseException:
             pass
-    output = f"""💡 **نتائج الفحص**
+    output = f"""⌔ **نتائج الفحص**
     
 <u>**Client:**</u>
 
@@ -50,7 +50,7 @@ async def run_speedtest(_, message):
 **كفيل:** {result['server']['sponsor']}
 **وقت الإستجابة:** {result['server']['latency']}  
 
-⚡ **البنك:** {result['ping']}"""
+⌔ **البينج:** {result['ping']}"""
     if result["share"]:
         msg = await app.send_photo(
             chat_id=message.chat.id, photo=path, caption=output
